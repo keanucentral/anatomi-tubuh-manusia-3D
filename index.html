@@ -153,6 +153,18 @@
         .live-dot {
             animation: pulse-slow 1.6s infinite ease-in-out;
         }
+        /* Mobile Portrait Responsive Adaptations */
+        @media (max-width: 640px) {
+            .callout-tag {
+                padding: 2px 5px;
+                border-radius: 5px;
+            }
+            input[type=range]::-webkit-slider-thumb {
+                height: 13px;
+                width: 13px;
+                margin-top: -4px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -174,18 +186,18 @@
     </div>
 
     <!-- TOP NAVIGATION & ACTION CONTAINER (TIDAK SALING MENUTUPI) -->
-    <div class="fixed top-3 left-3 right-3 z-30 flex flex-col gap-2.5 pointer-events-none">
+    <div class="fixed top-2 sm:top-3 left-2 sm:left-3 right-2 sm:right-3 z-30 flex flex-col gap-1.5 sm:gap-2.5 pointer-events-none">
         <!-- Row 1: Main Header & Telemetry Controls -->
-        <header class="flex flex-wrap items-center justify-between gap-2">
+        <header class="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-between gap-1.5 sm:gap-2">
             <!-- Brand & Title -->
-            <div class="bio-panel px-4 py-2.5 rounded-2xl flex items-center gap-3.5 pointer-events-auto">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500/20 to-indigo-600/30 border border-sky-400/40 flex items-center justify-center text-sky-400 shadow-inner">
-                    <i class="fa-solid fa-microscope text-lg live-dot"></i>
+            <div class="bio-panel px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl flex items-center gap-2.5 sm:gap-3.5 pointer-events-auto">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-lg sm:rounded-xl bg-gradient-to-br from-sky-500/20 to-indigo-600/30 border border-sky-400/40 flex items-center justify-center text-sky-400 shadow-inner">
+                    <i class="fa-solid fa-microscope text-sm sm:text-lg live-dot"></i>
                 </div>
-                <div>
-                    <div class="flex items-center gap-2">
-                        <h1 class="text-sm md:text-base font-bold tracking-wider text-white uppercase">ATLAS ANATOMI KLINIS &amp; FISIOLOGI 3D</h1>
-                        <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono-tech bg-sky-500/20 text-sky-300 border border-sky-400/40">
+                <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                        <h1 class="text-xs sm:text-sm md:text-base font-bold tracking-wider text-white uppercase truncate">ATLAS ANATOMI KLINIS &amp; FISIOLOGI 3D</h1>
+                        <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-[8px] sm:text-[10px] font-mono-tech bg-sky-500/20 text-sky-300 border border-sky-400/40 truncate">
                             UNTUK PEMBELAJARAN KEANU ALPHARESA
                         </span>
                     </div>
@@ -196,7 +208,7 @@
             </div>
 
             <!-- Live Physiological Telemetry & Audio Controls -->
-            <div class="bio-panel px-3.5 py-2 rounded-2xl flex flex-wrap items-center gap-2.5 md:gap-4 pointer-events-auto">
+            <div class="bio-panel px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center justify-between sm:justify-start gap-1.5 sm:gap-2.5 md:gap-4 pointer-events-auto">
                 <!-- Telemetry Readouts -->
                 <div class="hidden xl:flex items-center gap-4 border-r border-slate-700/60 pr-4">
                     <div>
@@ -223,26 +235,26 @@
                 </div>
 
                 <!-- Toggle Scientific Callout Labels (Leader Lines) -->
-                <button id="btn-toggle-callouts" class="bio-btn active px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 text-sky-200" title="Tampilkan / Sembunyikan Label Anotasi">
+                <button id="btn-toggle-callouts" class="bio-btn px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold flex items-center gap-1.5 text-sky-200" title="Tampilkan / Sembunyikan Label Anotasi">
                     <i class="fa-solid fa-tags text-sky-400"></i>
                     <span class="hidden sm:inline">Label Anotasi</span>
                 </button>
 
                 <!-- Tour Button -->
-                <button id="btn-autotour" class="bio-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 text-sky-200">
+                <button id="btn-autotour" class="bio-btn px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold flex items-center gap-1.5 text-sky-200">
                     <i class="fa-solid fa-route text-sky-400"></i>
-                    <span id="autotour-label"> Presentasi Otomatis</span>
+                    <span id="autotour-label" class="truncate max-w-[110px] sm:max-w-none">Presentasi Otomatis</span>
                 </button>
 
                 <!-- Reset Camera -->
-                <button id="btn-reset-cam" title="Reset Sudut Pandang Anatomi Anterior" class="bio-btn px-3 py-2 rounded-xl text-xs font-medium text-slate-200 flex items-center gap-1.5">
+                <button id="btn-reset-cam" title="Reset Sudut Pandang Anatomi Anterior" class="bio-btn px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-medium text-slate-200 flex items-center gap-1.5">
                     <i class="fa-solid fa-expand text-slate-400"></i>
                     <span class="hidden md:inline">Anterior Utuh</span>
                 </button>
 
                 <!-- Audio Controls -->
-                <div class="flex items-center gap-2 pl-1 border-l border-slate-700/60">
-                    <button id="btn-mute" title="Bungkam / Aktifkan Suara Ambient & Efek" class="bio-btn w-8 h-8 rounded-xl flex items-center justify-center text-sky-300">
+                <div class="flex items-center gap-1.5 sm:gap-2 pl-1.5 border-l border-slate-700/60">
+                    <button id="btn-mute" title="Bungkam / Aktifkan Suara Ambient & Efek" class="bio-btn w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center text-sky-300">
                         <i id="icon-audio" class="fa-solid fa-volume-high text-xs"></i>
                     </button>
                     <div class="hidden sm:flex flex-col w-20">
@@ -255,11 +267,11 @@
                 </div>
 
                 <!-- Zoom In & Zoom Out Controls with Separator -->
-                <div class="flex items-center gap-1.5 pl-2.5 border-l border-slate-700/60">
-                    <button id="btn-zoom-in" title="Perbesar Tampilan (Zoom In)" class="bio-btn w-8 h-8 rounded-xl flex items-center justify-center text-sky-300 hover:text-white active:scale-90">
+                <div class="flex items-center gap-1 sm:gap-1.5 pl-1.5 sm:pl-2.5 border-l border-slate-700/60">
+                    <button id="btn-zoom-in" title="Perbesar Tampilan (Zoom In)" class="bio-btn w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center text-sky-300 hover:text-white active:scale-90">
                         <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
                     </button>
-                    <button id="btn-zoom-out" title="Perkecil Tampilan (Zoom Out)" class="bio-btn w-8 h-8 rounded-xl flex items-center justify-center text-sky-300 hover:text-white active:scale-90">
+                    <button id="btn-zoom-out" title="Perkecil Tampilan (Zoom Out)" class="bio-btn w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center text-sky-300 hover:text-white active:scale-90">
                         <i class="fa-solid fa-magnifying-glass-minus text-xs"></i>
                     </button>
                 </div>
@@ -267,26 +279,26 @@
         </header>
 
         <!-- Row 2: Dedicated Docked Bar for "Daftar Organ & Lapisan" and "Penjelasan Anatomi" (Rata Kiri & Kanan agar tidak bertumpuk) -->
-        <div class="flex items-center justify-between gap-3 w-full">
+        <div class="grid grid-cols-2 sm:flex sm:items-center sm:justify-between gap-2 sm:gap-3 w-full">
             <!-- Daftar Organ Button -->
-            <button id="btn-toggle-left" class="pointer-events-auto px-4 md:px-5 py-2.5 rounded-2xl text-xs md:text-sm font-bold text-white bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 border-2 border-sky-300/80 shadow-[0_6px_20px_rgba(14,165,233,0.4)] flex items-center gap-2.5 transition-all duration-200 active:scale-95">
-                <i class="fa-solid fa-layer-group text-base text-sky-200"></i>
-                <span>Daftar Organ &amp; Lapisan</span>
-                <i id="icon-chevron-left" class="fa-solid fa-chevron-down text-xs text-sky-200 ml-1 transition-transform duration-300"></i>
+            <button id="btn-toggle-left" class="pointer-events-auto px-2.5 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl text-[11px] sm:text-xs md:text-sm font-bold text-white bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 border-2 border-sky-300/80 shadow-[0_6px_20px_rgba(14,165,233,0.4)] flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2.5 transition-all duration-200 active:scale-95">
+                <i class="fa-solid fa-layer-group text-xs sm:text-base text-sky-200 shrink-0"></i>
+                <span class="truncate">Daftar Organ &amp; Lapisan</span>
+                <i id="icon-chevron-left" class="fa-solid fa-chevron-down text-[10px] sm:text-xs text-sky-200 ml-auto sm:ml-1 transition-transform duration-300 shrink-0"></i>
             </button>
 
             <!-- Penjelasan Organ Button -->
-            <button id="btn-toggle-right" class="pointer-events-auto px-4 md:px-5 py-2.5 rounded-2xl text-xs md:text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 border-2 border-emerald-300/80 shadow-[0_6px_20px_rgba(16,185,129,0.4)] flex items-center gap-2.5 transition-all duration-200 active:scale-95">
-                <i class="fa-solid fa-book-medical text-base text-emerald-200"></i>
-                <span>Penjelasan Anatomi</span>
-                <i id="icon-chevron-right" class="fa-solid fa-chevron-down text-xs text-emerald-200 ml-1 transition-transform duration-300"></i>
+            <button id="btn-toggle-right" class="pointer-events-auto px-2.5 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl text-[11px] sm:text-xs md:text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 border-2 border-emerald-300/80 shadow-[0_6px_20px_rgba(16,185,129,0.4)] flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2.5 transition-all duration-200 active:scale-95">
+                <i class="fa-solid fa-book-medical text-xs sm:text-base text-emerald-200 shrink-0"></i>
+                <span class="truncate">Penjelasan Anatomi</span>
+                <i id="icon-chevron-right" class="fa-solid fa-chevron-down text-[10px] sm:text-xs text-emerald-200 ml-auto sm:ml-1 transition-transform duration-300 shrink-0"></i>
             </button>
         </div>
     </div>
 
     <!-- LEFT PANEL: ORGAN DIRECTORY & LAYER VISIBILITY -->
-    <aside id="left-drawer" class="fixed top-36 sm:top-32 bottom-20 left-3 z-20 w-72 md:w-80 flex flex-col gap-2.5 pointer-events-none transition-all duration-300">
-        <div id="left-drawer-content" class="hidden bio-panel rounded-2xl p-3.5 flex flex-col gap-3 flex-1 overflow-hidden pointer-events-auto border border-sky-400/30 shadow-2xl">
+    <aside id="left-drawer" class="fixed top-36 sm:top-32 bottom-28 sm:bottom-20 left-2 right-2 sm:left-3 sm:right-auto z-20 sm:w-72 md:w-80 flex flex-col gap-2.5 pointer-events-none transition-all duration-300">
+        <div id="left-drawer-content" class="hidden bio-panel rounded-2xl p-3 sm:p-3.5 flex flex-col gap-2.5 sm:gap-3 flex-1 overflow-hidden pointer-events-auto border border-sky-400/30 shadow-2xl">
             <!-- Anatomical Layer Toggles -->
             <div>
                 <div class="flex items-center justify-between mb-2">
@@ -340,8 +352,8 @@
     </aside>
 
     <!-- RIGHT PANEL: SCIENTIFIC ORGAN INSPECTION CARD -->
-    <aside id="right-drawer" class="fixed top-36 sm:top-32 bottom-20 right-3 z-20 w-72 md:w-80 flex flex-col gap-2.5 pointer-events-none transition-all duration-300">
-        <div id="right-drawer-content" class="hidden bio-panel rounded-2xl p-4 flex flex-col justify-between flex-1 overflow-y-auto pointer-events-auto border border-emerald-400/30 shadow-2xl">
+    <aside id="right-drawer" class="fixed top-36 sm:top-32 bottom-28 sm:bottom-20 left-2 right-2 sm:left-auto sm:right-3 z-20 sm:w-72 md:w-80 flex flex-col gap-2.5 pointer-events-none transition-all duration-300">
+        <div id="right-drawer-content" class="hidden bio-panel rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between flex-1 overflow-y-auto pointer-events-auto border border-emerald-400/30 shadow-2xl">
             <div>
                 <!-- System Badge & Close Button -->
                 <div class="flex items-center justify-between gap-2 mb-2">
@@ -431,37 +443,45 @@
     </aside>
 
     <!-- BOTTOM CONTROL DOCK -->
-    <footer class="fixed bottom-3 left-3 right-3 z-20 flex flex-col items-center pointer-events-none">
+    <footer class="fixed bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 z-20 flex flex-col items-center pointer-events-none">
         <!-- Auto-Tour Progress Banner (Hidden unless tour is active) -->
-        <div id="tour-banner" class="hidden mb-2 bio-panel px-4 py-2 rounded-2xl pointer-events-auto flex items-center gap-4 border border-sky-400/40 shadow-lg">
-            <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-sky-400 live-dot"></span>
-                <span class="text-xs font-semibold text-sky-200 uppercase tracking-wider">Presentasi Anatomi:</span>
-                <span id="tour-step-text" class="text-xs font-mono-tech text-white">1 / 12 &mdash; Otak Besar</span>
+        <div id="tour-banner" class="hidden mb-1.5 sm:mb-2 bio-panel px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl pointer-events-auto flex flex-wrap items-center justify-between sm:justify-center gap-2 sm:gap-4 border border-sky-400/40 shadow-lg w-full sm:w-auto">
+            <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-sky-400 live-dot shrink-0"></span>
+                <span class="text-[10px] sm:text-xs font-semibold text-sky-200 uppercase tracking-wider hidden sm:inline">Presentasi Anatomi:</span>
+                <span id="tour-step-text" class="text-[11px] sm:text-xs font-mono-tech text-white truncate">1 / 12 &mdash; Otak Besar</span>
             </div>
-            <div class="w-28 sm:w-44 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+            <div class="w-20 sm:w-44 h-1.5 bg-slate-800 rounded-full overflow-hidden shrink-0">
                 <div id="tour-progress-bar" class="h-full bg-gradient-to-r from-sky-400 to-emerald-400 transition-all duration-300" style="width: 8%"></div>
             </div>
-            <button id="btn-skip-tour" class="bio-btn px-2.5 py-1 rounded-lg text-[11px] text-sky-300">Lanjut &raquo;</button>
-            <button id="btn-stop-tour" class="bio-btn px-2.5 py-1 rounded-lg text-[11px] text-rose-300">Selesai</button>
+            <div class="flex items-center gap-1.5">
+                <button id="btn-skip-tour" class="bio-btn px-2 py-1 sm:px-2.5 rounded-lg text-[10px] sm:text-[11px] text-sky-300">Lanjut &raquo;</button>
+                <button id="btn-stop-tour" class="bio-btn px-2 py-1 sm:px-2.5 rounded-lg text-[10px] sm:text-[11px] text-rose-300">Selesai</button>
+            </div>
         </div>
 
         <!-- Main Simulation Controls -->
-        <div class="bio-panel px-4 py-2.5 rounded-2xl pointer-events-auto flex flex-wrap items-center justify-center gap-3 md:gap-5 max-w-5xl w-full">
+        <div class="bio-panel px-2.5 py-2 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl pointer-events-auto grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:gap-3 md:gap-5 max-w-5xl w-full">
             <!-- Play / Pause Living Motion -->
-            <div class="flex items-center gap-2">
-                <button id="btn-play-pause" class="bio-btn active w-9 h-9 rounded-xl flex items-center justify-center text-sky-300" title="Jeda / Lanjutkan Fisiologi Organ">
+            <div class="flex items-center gap-2 col-span-1">
+                <button id="btn-play-pause" class="bio-btn active w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center text-sky-300 shrink-0" title="Jeda / Lanjutkan Fisiologi Organ">
                     <i id="icon-play-pause" class="fa-solid fa-pause text-xs"></i>
                 </button>
-                <div class="text-left">
-                    <span class="text-[10px] uppercase tracking-wider text-slate-400 block">Fisiologi</span>
-                    <span id="sim-status-text" class="text-xs font-semibold text-emerald-400">Aktif Hidup</span>
+                <div class="text-left min-w-0">
+                    <span class="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 block">Fisiologi</span>
+                    <span id="sim-status-text" class="text-[11px] sm:text-xs font-semibold text-emerald-400 truncate block">Aktif Hidup</span>
                 </div>
             </div>
 
+            <!-- Studio Background Toggle (Placed top-right on mobile grid for balanced 2-col layout) -->
+            <button id="btn-bg-mode" class="bio-btn px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-medium flex items-center justify-center gap-1.5 text-sky-200 col-span-1 sm:order-last" title="Ganti Latar Atlas Grid Putih / Mode Radiologi Gelap">
+                <i class="fa-solid fa-table-cells text-sky-300"></i>
+                <span id="bg-mode-label" class="truncate">Mode Radiologi</span>
+            </button>
+
             <!-- Time Speed Slider -->
-            <div class="flex flex-col w-28 sm:w-36">
-                <div class="flex justify-between text-[10px] mb-1">
+            <div class="flex flex-col w-full sm:w-32 md:w-36">
+                <div class="flex justify-between text-[9px] sm:text-[10px] mb-0.5 sm:mb-1">
                     <span class="text-slate-300 font-medium"><i class="fa-regular fa-clock text-sky-400 mr-1"></i>Kecepatan</span>
                     <span id="label-time-speed" class="font-mono-tech text-sky-300">1.0x</span>
                 </div>
@@ -469,8 +489,8 @@
             </div>
 
             <!-- Organ Movement Tempo / Amplitude Slider -->
-            <div class="flex flex-col w-28 sm:w-36">
-                <div class="flex justify-between text-[10px] mb-1">
+            <div class="flex flex-col w-full sm:w-32 md:w-36">
+                <div class="flex justify-between text-[9px] sm:text-[10px] mb-0.5 sm:mb-1">
                     <span class="text-slate-300 font-medium"><i class="fa-solid fa-wave-square text-rose-400 mr-1"></i>Amplitudo</span>
                     <span id="label-organ-tempo" class="font-mono-tech text-rose-300">100%</span>
                 </div>
@@ -478,8 +498,8 @@
             </div>
 
             <!-- Cutaway / Skin Silhouette Opacity Slider (Default 20% matching reference image) -->
-            <div class="flex flex-col w-32 sm:w-36">
-                <div class="flex justify-between text-[10px] mb-1">
+            <div class="flex flex-col w-full sm:w-32 md:w-36">
+                <div class="flex justify-between text-[9px] sm:text-[10px] mb-0.5 sm:mb-1">
                     <span class="text-slate-300 font-medium"><i class="fa-solid fa-user-shield text-amber-300 mr-1"></i>Siluet Dermis</span>
                     <span id="label-shell-opacity" class="font-mono-tech text-amber-300">20%</span>
                 </div>
@@ -487,19 +507,13 @@
             </div>
 
             <!-- Cross-Sectional Axial Clipping Plane Slider (Presentasi Ilmiah) -->
-            <div class="flex flex-col w-32 sm:w-40">
-                <div class="flex justify-between text-[10px] mb-1">
+            <div class="flex flex-col w-full sm:w-36 md:w-40">
+                <div class="flex justify-between text-[9px] sm:text-[10px] mb-0.5 sm:mb-1">
                     <span class="text-slate-300 font-medium"><i class="fa-solid fa-scissors text-emerald-400 mr-1"></i>Irisan Sagital</span>
                     <span id="label-clip-plane" class="font-mono-tech text-emerald-300">Utuh</span>
                 </div>
                 <input id="slider-clip-plane" type="range" min="-2.5" max="2.5" step="0.05" value="2.5">
             </div>
-
-            <!-- Studio Background Toggle -->
-            <button id="btn-bg-mode" class="bio-btn px-3 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5 text-sky-200" title="Ganti Latar Atlas Grid Putih / Mode Radiologi Gelap">
-                <i class="fa-solid fa-table-cells text-sky-300"></i>
-                <span class="hidden sm:inline" id="bg-mode-label">Mode Radiologi</span>
-            </button>
         </div>
     </footer>
 
@@ -1110,7 +1124,34 @@
         const camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.1, 100);
         const DEFAULT_CAM_POS = new THREE.Vector3(0.0, 0.25, 19.6);
         const DEFAULT_LOOK_AT = new THREE.Vector3(0.0, 0.15, 0.0);
-        camera.position.copy(DEFAULT_CAM_POS);
+
+        // Helper untuk menyesuaikan jarak kamera & FOV agar proporsional di smartphone portrait
+        function getResponsiveCameraParams(baseCamPos, baseLookAt) {
+            const aspect = window.innerWidth / Math.max(1, window.innerHeight);
+            const isPortrait = aspect < 0.85;
+            const adjPos = new THREE.Vector3(baseCamPos.x, baseCamPos.y, baseCamPos.z);
+            const adjLook = new THREE.Vector3(baseLookAt.x, baseLookAt.y, baseLookAt.z);
+
+            if (isPortrait) {
+                // Mundurkan kamera secara proporsional terhadap rasio layar vertikal agar seluruh tubuh/organ muat dengan pas
+                const distScale = Math.min(1.52, Math.max(1.18, 0.88 / Math.sqrt(aspect)));
+                adjPos.z = baseCamPos.z * distScale;
+                adjPos.x = baseCamPos.x * 0.75;
+            }
+            return { pos: adjPos, look: adjLook };
+        }
+
+        function updateCameraProjectionForViewport() {
+            const aspect = window.innerWidth / Math.max(1, window.innerHeight);
+            camera.aspect = aspect;
+            // Perluas sedikit vertikal FOV saat portrait agar anatomi dari kepala hingga kaki terlihat utuh di antara dock atas & bawah
+            camera.fov = aspect < 0.85 ? 42 : 36;
+            camera.updateProjectionMatrix();
+        }
+
+        updateCameraProjectionForViewport();
+        const initCam = getResponsiveCameraParams(DEFAULT_CAM_POS, DEFAULT_LOOK_AT);
+        camera.position.copy(initCam.pos);
 
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -1130,11 +1171,11 @@
         }, { capture: true, passive: false });
 
         const controls = new THREE.OrbitControls(camera, renderer.domElement);
-        controls.target.copy(DEFAULT_LOOK_AT);
+        controls.target.copy(initCam.look);
         controls.enableDamping = true;
         controls.dampingFactor = 0.065;
         controls.minDistance = 1.4;
-        controls.maxDistance = 26.0;
+        controls.maxDistance = 34.0;
         controls.maxPolarAngle = Math.PI * 0.94;
 
         const hemiLight = new THREE.HemisphereLight(0xffffff, 0xcbd5e1, 0.92);
@@ -2380,7 +2421,7 @@
         // ============================================================================
         // 7. SCIENTIFIC LEADER-LINE CALLOUT SYSTEM (DENGAN ISTILAH UMUM MUDAH DIPAHAMI)
         // ============================================================================
-        let calloutsVisible = true;
+        let calloutsVisible = false;
         const calloutSvgEl = document.getElementById('callout-svg');
         const calloutLabelsLayer = document.getElementById('callout-labels-layer');
         const calloutDOMItems = [];
@@ -2437,7 +2478,7 @@
         const tempProjVec = new THREE.Vector3();
         function updateScientificCalloutPositions() {
             const containerEl = document.getElementById('scientific-callouts');
-            if (!calloutsVisible || window.innerWidth < 768) {
+            if (!calloutsVisible) {
                 containerEl.style.display = 'none';
                 return;
             }
@@ -2445,6 +2486,7 @@
 
             const w = window.innerWidth;
             const h = window.innerHeight;
+            const isMobilePortrait = w < 768;
             const centerX = w * 0.5;
 
             const leftItems = calloutDOMItems.filter(it => it.organ.pinSide === 'left');
@@ -2452,6 +2494,14 @@
 
             const processSide = (items, isLeft) => {
                 items.forEach((item, slotIdx) => {
+                    // Tampilkan hanya label anotasi pada organ yang sedang dipilih/disentuh
+                    if (item.organ.id !== selectedOrganId) {
+                        item.tag.style.display = 'none';
+                        item.line.style.display = 'none';
+                        item.dot.style.display = 'none';
+                        return;
+                    }
+
                     tempProjVec.copy(item.worldVec);
                     tempProjVec.project(camera);
 
@@ -2465,12 +2515,26 @@
                     const anchorX = (tempProjVec.x * 0.5 + 0.5) * w;
                     const anchorY = (-(tempProjVec.y * 0.5) + 0.5) * h;
 
-                    const marginOffset = Math.min(250, w * 0.21);
-                    const labelX = isLeft ? Math.max(16, centerX - marginOffset - 165) : Math.min(w - 200, centerX + marginOffset);
-                    const elbowX = isLeft ? labelX + item.tag.offsetWidth + 6 : labelX - 6;
+                    const badgeTitle = item.tag.querySelector('div > div:first-child');
+                    const badgeSub = item.tag.querySelector('div > div:last-child');
+                    if (badgeTitle) badgeTitle.className = isMobilePortrait ? 'text-[8.5px] font-bold text-white tracking-tight leading-tight max-w-[92px] truncate' : 'text-[10px] font-bold text-white tracking-wide leading-tight';
+                    if (badgeSub) badgeSub.style.display = isMobilePortrait ? 'none' : 'block';
 
-                    const idealSlotY = h * 0.24 + (slotIdx / Math.max(1, items.length - 1)) * (h * 0.54);
-                    const labelY = Math.max(138, anchorY * 0.52 + idealSlotY * 0.48);
+                    let labelX, elbowX, topBound, bottomBound;
+                    if (isMobilePortrait) {
+                        labelX = isLeft ? 6 : Math.max(centerX + 12, w - item.tag.offsetWidth - 6);
+                        elbowX = isLeft ? labelX + item.tag.offsetWidth + 3 : labelX - 3;
+                        topBound = 136;
+                        bottomBound = h - 148;
+                    } else {
+                        const marginOffset = Math.min(250, w * 0.21);
+                        labelX = isLeft ? Math.max(16, centerX - marginOffset - 165) : Math.min(w - 200, centerX + marginOffset);
+                        elbowX = isLeft ? labelX + item.tag.offsetWidth + 6 : labelX - 6;
+                        topBound = 138;
+                        bottomBound = h - 110;
+                    }
+
+                    const labelY = Math.min(bottomBound, Math.max(topBound, anchorY));
 
                     item.tag.style.display = 'flex';
                     item.tag.style.left = `${labelX}px`;
@@ -2482,13 +2546,13 @@
                     item.dot.setAttribute('cy', anchorY.toFixed(1));
 
                     item.line.style.display = 'block';
-                    const midX = isLeft ? Math.min(anchorX - 18, (anchorX + elbowX) * 0.5) : Math.max(anchorX + 18, (anchorX + elbowX) * 0.5);
+                    const midX = isLeft ? Math.min(anchorX - 10, (anchorX + elbowX) * 0.5) : Math.max(anchorX + 10, (anchorX + elbowX) * 0.5);
                     item.line.setAttribute('points', `${anchorX.toFixed(1)},${anchorY.toFixed(1)} ${midX.toFixed(1)},${labelY.toFixed(1)} ${elbowX.toFixed(1)},${labelY.toFixed(1)}`);
 
                     const isSelected = item.organ.id === selectedOrganId;
                     item.line.setAttribute('stroke', isSelected ? '#38bdf8' : 'rgba(14, 165, 233, 0.55)');
-                    item.line.setAttribute('stroke-width', isSelected ? '2.2' : '1.3');
-                    item.dot.setAttribute('r', isSelected ? '5' : '3.5');
+                    item.line.setAttribute('stroke-width', isSelected ? '2.0' : '1.1');
+                    item.dot.setAttribute('r', isSelected ? (isMobilePortrait ? '4' : '5') : (isMobilePortrait ? '2.5' : '3.5'));
                 });
             };
 
@@ -2567,13 +2631,31 @@
         }
 
         function moveCameraSmoothly(targetCamPos, targetLookAt, duration = 1.35) {
+            const resp = getResponsiveCameraParams(targetCamPos, targetLookAt);
             camTween.active = true;
             camTween.startPos.copy(camera.position);
-            camTween.endPos.set(targetCamPos.x, targetCamPos.y, targetCamPos.z);
+            camTween.endPos.copy(resp.pos);
             camTween.startTarget.copy(controls.target);
-            camTween.endTarget.set(targetLookAt.x, targetLookAt.y, targetLookAt.z);
+            camTween.endTarget.copy(resp.look);
             camTween.elapsed = 0;
             camTween.duration = duration;
+            audioEngine.playCameraWhooshSfx();
+        }
+
+        function zoomCameraStep(zoomFactor) {
+            if (camTween.active) camTween.active = false;
+            const offset = new THREE.Vector3().subVectors(camera.position, controls.target);
+            const currentDist = offset.length();
+            const targetDist = Math.max(controls.minDistance, Math.min(controls.maxDistance, currentDist * zoomFactor));
+            offset.setLength(targetDist);
+            const nextPos = new THREE.Vector3().addVectors(controls.target, offset);
+            camTween.active = true;
+            camTween.startPos.copy(camera.position);
+            camTween.endPos.copy(nextPos);
+            camTween.startTarget.copy(controls.target);
+            camTween.endTarget.copy(controls.target);
+            camTween.elapsed = 0;
+            camTween.duration = 0.45;
             audioEngine.playCameraWhooshSfx();
         }
 
@@ -2641,12 +2723,20 @@
         }
 
         function setLeftDrawerOpen(isOpen) {
+            if (isOpen && window.innerWidth < 640) {
+                document.getElementById('right-drawer-content').classList.add('hidden');
+                document.getElementById('icon-chevron-right').style.transform = 'rotate(0deg)';
+            }
             document.getElementById('left-drawer-content').classList.toggle('hidden', !isOpen);
             document.getElementById('icon-chevron-left').style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
             audioEngine.playToggleSfx(isOpen);
         }
 
         function setRightDrawerOpen(isOpen) {
+            if (isOpen && window.innerWidth < 640) {
+                document.getElementById('left-drawer-content').classList.add('hidden');
+                document.getElementById('icon-chevron-left').style.transform = 'rotate(0deg)';
+            }
             document.getElementById('right-drawer-content').classList.toggle('hidden', !isOpen);
             document.getElementById('icon-chevron-right').style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
             audioEngine.playToggleSfx(isOpen);
@@ -2694,6 +2784,11 @@
             updateScientificInfoPanel(organ);
             highlightOrganIn3D(organId);
 
+            // Munculkan label anotasi saat organ disentuh / dipilih
+            calloutsVisible = true;
+            const calloutBtn = document.getElementById('btn-toggle-callouts');
+            if (calloutBtn) calloutBtn.classList.add('active');
+
             document.querySelectorAll('.organ-item-btn').forEach(btn => {
                 const isMatch = btn.getAttribute('data-organ-id') === organId;
                 btn.classList.toggle('active', isMatch);
@@ -2710,8 +2805,10 @@
                 }
                 setRightDrawerOpen(true);
                 autoTourTimer = 0;
-                speakOrganExplanation(organ);
             }
+
+            // Aktifkan narasi TTS membacakan nama organ dan Fungsi Fisiologis Utama
+            speakOrganExplanation(organ);
         }
 
         function renderOrganDirectory() {
@@ -2963,8 +3060,7 @@
         document.getElementById('btn-close-right').addEventListener('click', () => setRightDrawerOpen(false));
 
         window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
+            updateCameraProjectionForViewport();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
